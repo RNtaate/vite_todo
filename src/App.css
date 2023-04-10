@@ -1,19 +1,50 @@
 /* rgb(63,52,131); */
 
+.App,
+.item-form,
+.lower-div {
+  display: flex;
+}
+
 .App {
   width:  100%;
   min-height: 100vh;
   max-height: 100vh;
   background-color: #334;
+  flex-direction: column;
 }
 
 .upper-div {
   width: 50%;
+  max-height: 25vh;
+  min-height: 25vh;
+  background-color: green;
 }
 
 .item-form {
   background-color: red;
-  display: flex;
   flex-direction: column;
   padding: 10px;
+}
+
+.lower-div {
+  flex: 1;
+  background-color: black;
+  overflow: hidden;
+}
+
+.items-list-aside,
+.details-container-div {
+  align-self: stretch;
+  overflow: hidden;  
+}
+
+.items-list-aside {
+  background-color: blue;
+  flex: 1;
+}
+
+.details-container-div {
+  background-color: cyan;
+  flex: 2;
 }

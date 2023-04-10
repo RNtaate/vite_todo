@@ -8,6 +8,11 @@ function App() {
       <div className='upper-div' >
         <NewItemForm />
       </div>
+
+      <div className='lower-div'>
+        <aside className="items-list-aside" ></aside>
+        <div className="details-container-div" ></div>
+      </div>
     </div>
   )
 }
