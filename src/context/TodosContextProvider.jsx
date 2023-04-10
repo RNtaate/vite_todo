@@ -27,6 +27,14 @@ const TodosContextProvider = ({ children }) => {
     setSelectedTodo(todo);
   }
 
+  const handleCheckingTodo = (value, todo) => {
+    setTodos( currentTodos => {
+      let newTodos = { ...currentTodos};
+      newTodos[todo.id].completed = value;
+      return newTodos;
+    })
+  }
+
   return (
     <TodosContext.Provider value={
       {
@@ -34,7 +42,8 @@ const TodosContextProvider = ({ children }) => {
         selectedTodo,
         handleAddingTodo,
         handleDeletingTodo,
-        handleExpandingTodo
+        handleExpandingTodo,
+        handleCheckingTodo
       }
     }>
       {children}

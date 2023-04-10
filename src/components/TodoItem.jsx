@@ -5,11 +5,16 @@ import { TodosContext } from '../context/TodosContextProvider'
 export default function TodoItem({todo}) {
 
   const todosContext = useContext(TodosContext);
-  const { handleDeletingTodo, handleExpandingTodo } = todosContext;
+  const { handleDeletingTodo, handleExpandingTodo, handleCheckingTodo } = todosContext;
+
+  const handleCheckToggle = (e) => {
+    let value = e.target.checked;
+    handleCheckingTodo(value, todo);
+  }
 
   return (
     <li >
-      <input type='checkbox' id={todo.id} />
+      <input type='checkbox' id={todo.id} onChange={handleCheckToggle} />
       <label htmlFor={todo.id}>{todo.title}</label>
       <button onClick={() => (handleDeletingTodo(todo))}>DELETE</button>
       <button onClick={() => {handleExpandingTodo(todo)}} >EXPAND</button>
