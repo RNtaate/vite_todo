@@ -10,22 +10,6 @@ function App() {
   const todosContext = useContext(TodosContext);
   const { todos } = todosContext;
 
-  // const handleAddingTodo = (newTodo) => {
-  //   setTodos(currentTodos => {
-  //     return (
-  //       {...currentTodos, [`${newTodo.id}`]: {...newTodo}}
-  //     )
-  //   })
-  // }
-
-  // const handleDeletingTodo = (todo) => {
-  //   setTodos(currentTodos => {
-  //     let newTodos = {...currentTodos};
-  //     delete newTodos[todo.id];
-  //     return newTodos;
-  //   })
-  // }
-
   return (
     <div className="App">
       <div className='upper-div' >
