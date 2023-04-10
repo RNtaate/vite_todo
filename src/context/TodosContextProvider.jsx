@@ -18,7 +18,7 @@ const TodosContextProvider = ({ children }) => {
     setTodos(currentTodos => {
       let newTodos = {...currentTodos};
       delete newTodos[todo.id];
-      if(selectedTodo.id === todo.id) setSelectedTodo(null); 
+      if(selectedTodo?.id === todo.id) setSelectedTodo(null); 
       return newTodos;
     })
   }

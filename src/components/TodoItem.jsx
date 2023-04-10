@@ -14,13 +14,16 @@ export default function TodoItem({todo}) {
 
   return (
     <li className="todo-item" onClick={() => handleExpandingTodo(todo)}
-      style={{color: selectedTodo.id === todo.id ? 'orange' : 'white', opacity: todo.completed ? 0.5 : 1 }}
+      style={{color: selectedTodo?.id === todo.id ? 'orange' : 'white', opacity: todo.completed ? 0.5 : 1 }}
     >
       <div className='item-naming-div'>
         <input type='checkbox' id={todo.id} onChange={handleCheckToggle} onClick={(e) => (e.stopPropagation())} />
         <label style={{textDecorationLine: todo.completed ? 'line-through' : 'none'}} >{todo.title}</label>
       </div>
-      <button onClick={() => (handleDeletingTodo(todo))}>DELETE</button>
+      <button onClick={(e) => {
+        e.stopPropagation()
+        handleDeletingTodo(todo)
+      }}  className="btn btn-danger item-btn" >DELETE</button>
     </li>
   )
 }
