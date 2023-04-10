@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-export default function TodoItem({todo, deleteTodo}) {
+import { TodosContext } from '../context/TodosContextProvider'
+
+export default function TodoItem({todo}) {
+
+  const todosContext = useContext(TodosContext);
+  const { handleDeletingTodo } = todosContext;
+
   return (
     <li >
       <input type='checkbox' id={todo.id} />
       <label htmlFor={todo.id}>{todo.title}</label>
-      <button onClick={() => (deleteTodo(todo))}>DELETE</button>
+      <button onClick={() => (handleDeletingTodo(todo))}>DELETE</button>
     </li>
   )
 }

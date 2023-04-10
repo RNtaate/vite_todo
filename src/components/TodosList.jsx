@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
+import { TodosContext } from '../context/TodosContextProvider';
 import TodoItem from './TodoItem';
 
-export default function TodosList({todos, deleteTodo}) {
+export default function TodosList() {
+
+  const todosContext = useContext(TodosContext);
+  const { todos } = todosContext;
+
   return (
     <ul>
       {Object.keys(todos).map( singleKey => {
         return(
-          <TodoItem key={singleKey} todo={todos[singleKey]} deleteTodo={deleteTodo} />
+          <TodoItem key={singleKey} todo={todos[singleKey]} />
         )
       })}
     </ul>    

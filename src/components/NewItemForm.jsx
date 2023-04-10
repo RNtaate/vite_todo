@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react';
+
+import { TodosContext } from '../context/TodosContextProvider';
 
 const NewItemForm = ({addTodo}) => {
 
   const [newTodo, setNewTodo] = useState({title: "", description: ""})
+  const todosContext = useContext(TodosContext);
+  const { handleAddingTodo } = todosContext;
 
   const handleSettingTitle = (e) => {
     setNewTodo(currentTodo => {
@@ -24,7 +28,7 @@ const NewItemForm = ({addTodo}) => {
     e.preventDefault();
     const {title, description} = newTodo;
     if(title.trim() === "" || description.trim() === "") return
-    addTodo({...newTodo, id: crypto.randomUUID()});
+    handleAddingTodo({...newTodo, id: crypto.randomUUID()});
     setNewTodo({title: "", description: ""});
   }
 
