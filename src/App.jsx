@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 
 import './App.css'
-import NewItemForm from './components/NewItemForm'
+import NewItemForm from './components/NewItemForm';
+import TodosList from './components/TodosList';
 
 function App() {
 
@@ -29,17 +30,7 @@ function App() {
         <aside className="items-list-aside" >
           <h4>Todos</h4>
           {Object.keys(todos).length === 0 && <h6>No todos yet</h6>}
-          <ul>
-            {Object.keys(todos).map( singleKey => {
-              return(
-                <li key={singleKey} >
-                  <input type='checkbox' id={singleKey} />
-                  <label htmlFor={singleKey}>{todos[singleKey].title}</label>
-                  <button>DELETE</button>
-                </li>
-              )
-            })}
-          </ul>
+          <TodosList todos={todos} />
         </aside>
         <div className="details-container-div" ></div>
       </div>
