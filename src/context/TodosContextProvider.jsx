@@ -5,11 +5,7 @@ export const TodosContext = createContext();
 const TodosContextProvider = ({ children }) => {
   const [todos, setTodos] = useState({})
   const [selectedTodo, setSelectedTodo] = useState(null)
-
-  useEffect(() => {
-    console.log(todos);
-  }, [todos])
-
+  
   const handleAddingTodo = (newTodo) => {
     setTodos(currentTodos => {
       return (
