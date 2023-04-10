@@ -1,19 +1,36 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useEffect } from 'react'
 
 export const TodosContext = createContext();
 
 const TodosContextProvider = ({ children }) => {
+  const [todos, setTodos] = useState({})
 
-  const [originalTodo, setOriginalTodo] = useState("Original Thunder");
-  const showMeSomething = () => {
-    console.log('I am a function from the context');
+  useEffect(() => {
+    console.log(todos);
+  }, [todos])
+
+  const handleAddingTodo = (newTodo) => {
+    setTodos(currentTodos => {
+      return (
+        {...currentTodos, [`${newTodo.id}`]: {...newTodo}}
+      )
+    })
+  }
+
+  const handleDeletingTodo = (todo) => {
+    setTodos(currentTodos => {
+      let newTodos = {...currentTodos};
+      delete newTodos[todo.id];
+      return newTodos;
+    })
   }
 
   return (
     <TodosContext.Provider value={
       {
-        originalTodo,
-        showMeSomething
+        todos,
+        handleAddingTodo,
+        handleDeletingTodo
       }
     }>
       {children}
