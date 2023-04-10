@@ -5,7 +5,7 @@ import { TodosContext } from '../context/TodosContextProvider'
 export default function TodoItem({todo}) {
 
   const todosContext = useContext(TodosContext);
-  const { handleDeletingTodo, handleExpandingTodo, handleCheckingTodo } = todosContext;
+  const { handleDeletingTodo, handleExpandingTodo, handleCheckingTodo, selectedTodo } = todosContext;
 
   const handleCheckToggle = (e) => {
     let value = e.target.checked;
@@ -13,10 +13,12 @@ export default function TodoItem({todo}) {
   }
 
   return (
-    <li className="todo-item" onClick={() => handleExpandingTodo(todo)} >
+    <li className="todo-item" onClick={() => handleExpandingTodo(todo)}
+      style={{color: selectedTodo.id === todo.id ? 'orange' : 'white', opacity: todo.completed ? 0.5 : 1 }}
+    >
       <div className='item-naming-div'>
         <input type='checkbox' id={todo.id} onChange={handleCheckToggle} onClick={(e) => (e.stopPropagation())} />
-        <label>{todo.title}</label>
+        <label style={{textDecorationLine: todo.completed ? 'line-through' : 'none'}} >{todo.title}</label>
       </div>
       <button onClick={() => (handleDeletingTodo(todo))}>DELETE</button>
     </li>
