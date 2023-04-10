@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const NewItemForm = () => {
+const NewItemForm = ({addTodo}) => {
 
   const [newTodo, setNewTodo] = useState({title: "", description: ""})
 
@@ -20,13 +20,16 @@ const NewItemForm = () => {
     })
   }
 
-  const handleSubmitingForm = (e) => {
+  const handleSubmitForm = (e) => {
     e.preventDefault();
     const {title, description} = newTodo;
+    if(title.trim() === "" || description.trim() === "") return
+    addTodo(newTodo);
+    setNewTodo({title: "", description: ""});
   }
 
   return (
-    <form className="item-form" onSubmit={handleSubmitingForm} >
+    <form className="item-form" onSubmit={handleSubmitForm} >
       <h4>New Todo</h4>
       <label htmlFor='item-title' >Tiltle</label>
       <input type="text" id="item-title" value={newTodo.title} onChange={handleSettingTitle} autoComplete="off" />
