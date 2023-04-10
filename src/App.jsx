@@ -5,7 +5,7 @@ import NewItemForm from './components/NewItemForm'
 
 function App() {
 
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState({});
 
   useEffect(() => {
     console.log(todos)
@@ -14,7 +14,7 @@ function App() {
   const handleAddingTodo = (newTodo) => {
     setTodos(currentTodos => {
       return (
-        [...currentTodos, newTodo]
+        {...currentTodos, [`${newTodo.id}`]: {...newTodo}}
       )
     })
   }
@@ -28,15 +28,15 @@ function App() {
       <div className='lower-div'>
         <aside className="items-list-aside" >
           <h4>Todos</h4>
-          {todos.length === 0 && <h6>No Todos Created</h6>}
+          {Object.keys(todos).length === 0 && <h6>No todos yet</h6>}
           <ul>
-            {todos.map( item => {
+            {Object.keys(todos).map( singleKey => {
               return(
-              <li key={item.id}>
-                <input type="checkbox" id={item.id} />
-                <label htmlFor={item.id} >{item.title}</label>
-                <button>Delete</button>
-              </li>            
+                <li key={singleKey} >
+                  <input type='checkbox' id={singleKey} />
+                  <label htmlFor={singleKey}>{todos[singleKey].title}</label>
+                  <button>DELETE</button>
+                </li>
               )
             })}
           </ul>
