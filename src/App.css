@@ -1,0 +1,19 @@
+/* rgb(63,52,131); */
+
+.App {
+  width:  100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  background-color: #334;
+}
+
+.upper-div {
+  width: 50%;
+}
+
+.item-form {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}

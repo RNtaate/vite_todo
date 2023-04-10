@@ -1,10 +1,13 @@
 import './App.css'
+import NewItemForm from './components/NewItemForm'
 
 function App() {
 
   return (
     <div className="App">
-      <h1>Vite Todos</h1>
+      <div className='upper-div' >
+        <NewItemForm />
+      </div>
     </div>
   )
 }
