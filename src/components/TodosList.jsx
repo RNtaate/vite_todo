@@ -9,7 +9,7 @@ export default function TodosList() {
   const { todos } = todosContext;
 
   return (
-    <ul>
+    <ul className="todo-list">
       {Object.keys(todos).map( singleKey => {
         return(
           <TodoItem key={singleKey} todo={todos[singleKey]} />

@@ -19,7 +19,7 @@ function App() {
 
       <div className='lower-div'>
         <aside className="items-list-aside" >
-          <h4>Todos</h4>
+          <h1>Todos</h1>
           {Object.keys(todos).length === 0 && <h6>No todos yet</h6>}
           <TodosList />
         </aside>
