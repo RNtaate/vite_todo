@@ -24,7 +24,7 @@ const NewItemForm = ({addTodo}) => {
     e.preventDefault();
     const {title, description} = newTodo;
     if(title.trim() === "" || description.trim() === "") return
-    addTodo(newTodo);
+    addTodo({...newTodo, id: crypto.randomUUID()});
     setNewTodo({title: "", description: ""});
   }
 
