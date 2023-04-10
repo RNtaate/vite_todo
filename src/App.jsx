@@ -20,6 +20,14 @@ function App() {
     })
   }
 
+  const handleDeletingTodo = (todo) => {
+    setTodos(currentTodos => {
+      let newTodos = {...currentTodos};
+      delete newTodos[todo.id];
+      return newTodos;
+    })
+  }
+
   return (
     <div className="App">
       <div className='upper-div' >
@@ -30,7 +38,7 @@ function App() {
         <aside className="items-list-aside" >
           <h4>Todos</h4>
           {Object.keys(todos).length === 0 && <h6>No todos yet</h6>}
-          <TodosList todos={todos} />
+          <TodosList todos={todos} deleteTodo={handleDeletingTodo} />
         </aside>
         <div className="details-container-div" ></div>
       </div>
