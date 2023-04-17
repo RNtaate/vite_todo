@@ -4,7 +4,7 @@
 
 > This is a simple todo list web application built using **React JS** with [**Vite**](https://vitejs.dev/) to test out the basic workings of **Vite**
 
-> A user can create a todo item, view its details, mark it as completed, and delete an item
+> A user can create a todo item, select a created item to view its details, mark it as completed, and delete an item
 
 > ### Future features
 >
@@ -19,7 +19,7 @@
 
 ## Screenshot / Demo video
 
-- Coming soon
+https://user-images.githubusercontent.com/42064746/232492124-b463eb61-fdec-44e7-9c69-27f40e5fd47a.mp4
 
 ## 🔴 Live Demo
 
