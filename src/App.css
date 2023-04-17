@@ -95,6 +95,12 @@
   border-bottom: 1px solid #555;
 }
 
+.items-list-aside > h6 {
+  padding: 2em;
+  font-size: 15px;
+  color: #aaa;
+}
+
 .todo-list {
   padding: 1em 0;
 }
@@ -166,6 +172,11 @@
   align-items: center;
   color: white;
   padding: 5em;
+}
+
+.no-selection-p {
+  font-size: 30px;
+  color: #aaa;
 }
 
 .todos-details-div {
