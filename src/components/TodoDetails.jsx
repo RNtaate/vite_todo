@@ -9,7 +9,7 @@ export default function TodoDetails({ todo }) {
   return (
     <div className="todos-details-div">
       <h1>{todo.title}</h1>
-      <p>{todo.description}</p>
+      <p className="todo-description-p">{todo.description}</p>
       <div className="status-edit-div">
         <span>
           <b>STATUS: </b>

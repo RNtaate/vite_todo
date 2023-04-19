@@ -190,6 +190,10 @@
   margin-bottom: 1em;
 }
 
+.todo-description-p {
+  white-space: pre-wrap;
+}
+
 .status-p {
   display: inline;
 }
